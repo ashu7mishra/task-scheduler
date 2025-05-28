@@ -29,7 +29,7 @@ class TaskDependency(models.Model):
     task = models.ForeignKey(Task, related_name='dependent_task', on_delete=models.CASCADE)
     depends_on = models.ForeignKey(Task, related_name='prerequisite_tasks', on_delete=models.CASCADE)
     
-    class meta:
+    class Meta:
         unique_together = ('task', 'depends_on')
         
     def __str__(self):
